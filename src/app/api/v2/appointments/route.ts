@@ -2,7 +2,7 @@ import prisma from "@/lib/prisma";
 import ErrorHandler from "@/lib/ErrorHandler";
 import { NextResponse } from "next/server";
 
-export async function GET(request: Request) {
+export async function GET() {
     try {
         const appointments = await prisma.appointment.findMany({
             include: {
