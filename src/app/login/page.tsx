@@ -4,7 +4,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Lock, User } from "lucide-react";
 import Cookies from "js-cookie";
 
-const ADMIN_CRED = process.env.NEXT_PUBLIC_ADMIN_CRED; //  process.env.NEXT_PUBLIC_ADMIN_USERNAME
+const ADMIN_CRED = process.env.ADMIN_CRED; //  process.env.NEXT_PUBLIC_ADMIN_USERNAME
 
 const Login = () => {
   const [username, setUsername] = useState("");
