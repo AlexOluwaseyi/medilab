@@ -39,7 +39,6 @@ const Dashboard = () => {
   // const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
   const [appointments, setAppointments] = useState<Appointment[]>([]);
-  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     fetchAppointments();
@@ -67,7 +66,6 @@ const Dashboard = () => {
 
       setAppointments(appointments);
     } catch (err) {
-      setError("Failed to load appointments");
       console.error(err);
     } finally {
       setIsLoading(false);

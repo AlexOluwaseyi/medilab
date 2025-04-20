@@ -43,7 +43,7 @@ const Header = () => {
     }, 120000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Check if the user is logged in
   useEffect(() => {

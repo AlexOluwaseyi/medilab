@@ -7,8 +7,7 @@ export async function GET(request: NextRequest) {
   const isDevelopment = process.env.NODE_ENV === "development";
   const isLocalhost = request.headers.get("host")?.includes("localhost");
 
-  // const isAllowed = isPreview || isDevelopment || isLocalhost;
-  const isAllowed = false
+  const isAllowed = isPreview || isDevelopment || isLocalhost;
 
   if (!isAllowed) {
     return NextResponse.json(

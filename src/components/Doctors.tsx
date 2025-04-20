@@ -65,8 +65,7 @@ const Doctors = () => {
       if (!response.ok) {
         throw new Error("Failed to add doctor");
       }
-      const newDoctorData = await response.json();
-      // setDoctors((prev) => [...prev, newDoctorData]);
+
       fetchDoctors(); // Refresh the list of doctors
       toast.success("Doctor added successfully");
 
@@ -152,6 +151,7 @@ const Doctors = () => {
       setIsEditModalOpen(false);
       setEditDoctor({ name: "", email: "", specialty: "" });
       setCurrentDoctorId("");
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       if (err.message && err.message.includes("Unique constraint")) {
         toast.error("Email address is already in use");

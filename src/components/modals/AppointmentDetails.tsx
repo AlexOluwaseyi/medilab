@@ -16,8 +16,6 @@ const AppointmentDetailsModal = ({
   onClose,
   doctors,
 }: AppointmentDetailsModalProps) => {
-  if (!isOpen) return null;
-
   // Initialize with existing test result if available
   const existingResult =
     appointment.TestResult && appointment.TestResult.length > 0
@@ -26,6 +24,8 @@ const AppointmentDetailsModal = ({
 
   const [testResult, setTestResult] = useState(existingResult);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  if (!isOpen) return null;
 
   const assignedDoctor = doctors.find((d) => d.id === appointment.doctorId);
 
