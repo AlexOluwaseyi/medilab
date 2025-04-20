@@ -10,7 +10,6 @@ const Appointments = () => {
   const [doctors, setDoctors] = useState<Doctor[]>([]);
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
   const [sendingEmails, setSendingEmails] = useState<Record<string, boolean>>(
     {}
   );
@@ -34,7 +33,7 @@ const Appointments = () => {
 
       setAppointments(appointments);
     } catch (err) {
-      setError("Failed to load appointments");
+      toast.error("Failed to load appointments");
       console.error(err);
     } finally {
       setIsLoading(false);
@@ -218,12 +217,6 @@ const Appointments = () => {
           </select>
         </div>
       </div>
-
-      {error && (
-        <div className="border-2 outline-white mb-6 bg-red-50 text-red-700 p-4 rounded-md">
-          {error}
-        </div>
-      )}
 
       <div className="rounded-lg shadow-md overflow-hidden border border-gray-200">
         <div className="overflow-x-auto">
