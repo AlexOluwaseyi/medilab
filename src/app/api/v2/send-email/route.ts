@@ -100,7 +100,7 @@ export async function POST(request: NextRequest) {
       }
       await mailtrapTransporter.sendMail({
         from: MAILTRAP_FROM,
-        to: 'akintolalex@gmail.com',
+        to: `${appointment.email}`,
         subject: 'Your Appointment is Approved',
         text: `Hello ${appointment.patientName},\n\nYour appointment scheduled for ${formattedDate} at ${formattedTime} has been approved.\n\nThank you!`,
         html: `
@@ -115,7 +115,7 @@ export async function POST(request: NextRequest) {
     if (status === "DECLINED") {
       await mailtrapTransporter.sendMail({
         from: MAILTRAP_FROM || '"Default Sender" <noreply@example.com>',
-        to: 'akintolalex@gmail.com',
+        to: `${appointment.email}`,
         subject: 'Your Appointment is Declined',
         text: `Hello ${appointment.patientName},\n\nYour appointment scheduled for ${formattedDate} at ${formattedTime} has been declined.\n\nThank you!`,
         html: `
@@ -141,7 +141,7 @@ export async function POST(request: NextRequest) {
       })
       await mailtrapTransporter.sendMail({
         from: MAILTRAP_FROM || '"Default Sender" <noreply@example.com>',
-        to: 'akintolalex@gmail.com',
+        to: `${appointment.email}`,
         subject: 'Your Appointment is Completed',
         text: `Hello ${appointment.patientName},\n\nYour appointment scheduled for ${formattedDate} at ${formattedTime} has been declined.\n\nThank you!`,
         html: `
