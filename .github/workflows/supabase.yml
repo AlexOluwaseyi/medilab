@@ -10,6 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Ping Medilab
-        run: |
-          curl -s \
-          -H "apikey: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" \-H "Authorization: Bearer ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" `https://${{secrets.MEDILAB_PROJECT_REF}}.supabase.co/rest/v1/Appointment?select=id` || echo "Ping failed"
+        run: curl -s -H "apikey: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" -H "Authorization: Bearer ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" "https://${{secrets.MEDILAB_PROJECT_REF}}.supabase.co/rest/v1/Appointment?select=id" || echo "Ping failed"
