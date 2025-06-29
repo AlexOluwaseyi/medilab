@@ -263,46 +263,62 @@ const Dashboard = () => {
                   </th>
                 </tr>
               </thead>
+
               <tbody>
                 <tr>
+                  {/* <td className="py-2 text-black">Total</td> */}
                   <td className="py-2 text-black">Pending</td>
                   <td className="py-2 text-black">{stats.pending}</td>
                   <td className="py-2 text-black">
-                    {((stats.pending / stats.total) * 100).toFixed(1)}%
+                    {stats.total !== undefined && stats.total > 0
+                      ? `((stats.pending / stats.total) * 100).toFixed(1)%`
+                      : "-"}
                   </td>
                 </tr>
                 <tr>
                   <td className="py-2 text-black">Approved</td>
                   <td className="py-2 text-black">{stats.approved}</td>
                   <td className="py-2 text-black">
-                    {((stats.approved / stats.total) * 100).toFixed(1)}%
+                    {stats.total !== undefined && stats.total > 0
+                      ? `((stats.approved / stats.total) * 100).toFixed(1)%`
+                      : "-"}
                   </td>
                 </tr>
                 <tr>
                   <td className="py-2 text-black">Completed</td>
                   <td className="py-2 text-black">{stats.completed}</td>
                   <td className="py-2 text-black">
-                    {((stats.completed / stats.total) * 100).toFixed(1)}%
+                    {stats.total !== undefined && stats.total > 0
+                      ? `((stats.completed / stats.total) * 100).toFixed(1)%`
+                      : "-"}
                   </td>
                 </tr>
                 <tr>
                   <td className="py-2 text-black">Cancelled</td>
                   <td className="py-2 text-black">{stats.cancelled}</td>
                   <td className="py-2 text-black">
-                    {((stats.cancelled / stats.total) * 100).toFixed(1)}%
+                    {stats.total !== undefined && stats.total > 0
+                      ? `((stats.cancelled / stats.total) * 100).toFixed(1)%`
+                      : "-"}
                   </td>
                 </tr>
                 <tr>
                   <td className="py-2 text-black">Declined</td>
                   <td className="py-2 text-black">{stats.declined}</td>
                   <td className="py-2 text-black">
-                    {((stats.declined / stats.total) * 100).toFixed(1)}%
+                    {stats.total !== undefined && stats.total > 0
+                      ? `((stats.declined / stats.total) * 100).toFixed(1)%`
+                      : "-"}
                   </td>
                 </tr>
                 <tr className="font-semibold">
                   <td className="py-2 text-black">Total</td>
                   <td className="py-2 text-black">{stats.total}</td>
-                  <td className="py-2 text-black">100%</td>
+                  <td className="py-2 text-black">
+                    {stats.total !== undefined && stats.total > 0
+                      ? "100%"
+                      : "-"}
+                  </td>
                 </tr>
               </tbody>
             </table>
