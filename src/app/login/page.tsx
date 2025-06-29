@@ -17,7 +17,10 @@ function LoginForm() {
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (username === ADMIN_CRED && password === ADMIN_CRED) {
+    if (
+      username.trim().toLowerCase() === ADMIN_CRED &&
+      password.trim() === ADMIN_CRED
+    ) {
       Cookies.set("auth-token", "authenticated", {
         expires: 20 / 1440, // 20 minutes
         secure: true,
